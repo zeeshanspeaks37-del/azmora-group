@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Azmora Healthcare | AZMORA GROUP - Healthcare Supply Chain & Infrastructure</title>
+  <meta name="description" content="Azmora Healthcare coordinates institutional healthcare supply chains, medical equipment logistics, and facility infrastructure coordination with absolute regulatory compliance.">
+  <link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#07080B',
+              surface: '#0E1017',
+              elevated: '#151822',
+              card: 'rgba(18, 22, 31, 0.75)',
+              gold: '#C5A059',
+              goldLight: '#F3E4BA',
+              goldRadiant: '#E5C578',
+              goldDark: '#8C6D2D',
+              slate: '#94A3B8'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['Cinzel', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-brand-black text-slate-100 selection:bg-brand-gold selection:text-black min-h-screen flex flex-col antialiased">
+
+  <!-- ==================== NAVIGATION BAR ==================== -->
+  <header id="main-navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-5 px-6 md:px-12 bg-transparent">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <a href="../index.html" class="flex items-center gap-3 group focus:outline-none">
+        <div class="w-48 sm:w-56 h-12 flex items-center">
+          <img src="../assets/logo.svg" alt="Azmora Group Logo" class="h-full w-auto object-contain">
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="../index.html" class="nav-link text-sm font-medium text-slate-300 hover:text-brand-goldRadiant transition-colors">Home</a>
+        <a href="../about.html" class="nav-link text-sm font-medium text-slate-300 hover:text-brand-goldRadiant transition-colors">About Us</a>
+        
+        <div class="relative group py-2">
+          <button id="services-dropdown-toggle" class="nav-link flex items-center gap-1.5 text-sm font-medium text-brand-goldRadiant font-semibold hover:text-brand-goldLight transition-colors focus:outline-none">
+            <span>Business Divisions</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-200"></i>
+          </button>
+          
+          <div id="services-dropdown-menu" class="absolute top-full left-0 w-72 pt-3 opacity-0 invisible translate-y-2 transition-all duration-200 pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:pointer-events-auto">
+            <div class="luxury-card rounded-2xl p-3 border border-brand-gold/30 bg-[#0C0E14]/95 backdrop-blur-2xl shadow-2xl space-y-1">
+              <a href="import-export.html" class="flex items-center gap-3.5 p-3 rounded-xl hover:bg-white/5 transition-colors group/item">
+                <div class="w-9 h-9 rounded-lg bg-brand-gold/10 flex items-center justify-center text-brand-goldRadiant group-hover/item:bg-brand-gold group-hover/item:text-black transition-colors">
+                  <i data-lucide="globe-2" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold text-white group-hover/item:text-brand-goldLight">Import & Export</div>
+                  <div class="text-xs text-slate-400">Global trade & cross-border freight</div>
+                </div>
+              </a>
+
+              <a href="coal-trading.html" class="flex items-center gap-3.5 p-3 rounded-xl hover:bg-white/5 transition-colors group/item">
+                <div class="w-9 h-9 rounded-lg bg-brand-gold/10 flex items-center justify-center text-brand-goldRadiant group-hover/item:bg-brand-gold group-hover/item:text-black transition-colors">
+                  <i data-lucide="flame" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold text-white group-hover/item:text-brand-goldLight">Coal Trading</div>
+                  <div class="text-xs text-slate-400">Bulk energy & industrial solid fuel</div>
+                </div>
+              </a>
+
+              <a href="shipping-logistics.html" class="flex items-center gap-3.5 p-3 rounded-xl hover:bg-white/5 transition-colors group/item">
+                <div class="w-9 h-9 rounded-lg bg-brand-gold/10 flex items-center justify-center text-brand-goldRadiant group-hover/item:bg-brand-gold group-hover/item:text-black transition-colors">
+                  <i data-lucide="ship" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold text-white group-hover/item:text-brand-goldLight">Shipping & Logistics</div>
+                  <div class="text-xs text-slate-400">Harbor operations & maritime freight</div>
+                </div>
+              </a>
+
+              <a href="furniture.html" class="flex items-center gap-3.5 p-3 rounded-xl hover:bg-white/5 transition-colors group/item">
+                <div class="w-9 h-9 rounded-lg bg-brand-gold/10 flex items-center justify-center text-brand-goldRadiant group-hover/item:bg-brand-gold group-hover/item:text-black transition-colors">
+                  <i data-lucide="armchair" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold text-white group-hover/item:text-brand-goldLight">Furniture</div>
+                  <div class="text-xs text-slate-400">Architectural & custom executive craft</div>
+                </div>
+              </a>
+
+              <a href="azmora-estate.html" class="flex items-center gap-3.5 p-3 rounded-xl hover:bg-white/5 transition-colors group/item">
+                <div class="w-9 h-9 rounded-lg bg-brand-gold/10 flex items-center justify-center text-brand-goldRadiant group-hover/item:bg-brand-gold group-hover/item:text-black transition-colors">
+                  <i data-lucide="building-2" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold text-white group-hover/item:text-brand-goldLight">Azmora Estate</div>
+                  <div class="text-xs text-slate-400">Commercial property & infrastructure</div>
+                </div>
+              </a>
+
+              <a href="azmora-healthcare.html" class="flex items-center gap-3.5 p-3 rounded-xl bg-brand-gold/15 text-white">
+                <div class="w-9 h-9 rounded-lg bg-brand-gold flex items-center justify-center text-black">
+                  <i data-lucide="heart-pulse" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold text-brand-goldLight">Azmora Healthcare</div>
+                  <div class="text-xs text-slate-300">Medical supply chain coordination</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="../contact.html" class="nav-link text-sm font-medium text-slate-300 hover:text-brand-goldRadiant transition-colors">Contact Us</a>
+      </nav>
+
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="tel:+916366240126" class="flex items-center gap-2 text-xs font-semibold tracking-wider text-brand-goldLight bg-white/5 px-3.5 py-2 rounded-full border border-brand-gold/30 hover:border-brand-gold transition-colors">
+          <i data-lucide="phone-call" class="w-3.5 h-3.5 text-brand-goldRadiant"></i>
+          <span>+91 6366240126</span>
+        </a>
+        <a href="../contact.html" class="btn-gold text-xs tracking-wider uppercase font-bold py-2.5 px-6">
+          <span>Healthcare Inquiries</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+      <button id="mobile-menu-btn" class="lg:hidden p-2.5 rounded-xl bg-white/5 border border-brand-gold/30 text-brand-goldLight hover:text-white focus:outline-none" aria-label="Open Mobile Menu">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay & Menu -->
+  <div id="mobile-overlay" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden"></div>
+  <div id="mobile-drawer" class="fixed top-0 right-0 bottom-0 w-5/6 max-w-sm bg-[#090B10] border-l border-brand-gold/30 z-50 translate-x-full transition-transform duration-300 ease-out p-6 flex flex-col justify-between overflow-y-auto lg:hidden">
+    <div>
+      <div class="flex items-center justify-between pb-6 border-b border-white/10">
+        <div class="w-40">
+          <img src="../assets/logo.svg" alt="Azmora Group Logo" class="h-8 w-auto">
+        </div>
+        <button id="mobile-menu-close" class="p-2 rounded-lg bg-white/5 text-slate-400 hover:text-white" aria-label="Close Mobile Menu">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="mt-8 space-y-4">
+        <a href="../index.html" class="block text-base font-medium text-slate-300 hover:text-white">Home</a>
+        <a href="../about.html" class="block text-base font-medium text-slate-300 hover:text-white">About Us</a>
+        
+        <div class="pt-2 pb-1 text-xs font-bold tracking-widest text-brand-gold uppercase">Business Divisions</div>
+        <div class="pl-3 space-y-3 border-l border-brand-gold/20">
+          <a href="import-export.html" class="flex items-center gap-2 text-sm text-slate-300 hover:text-brand-goldLight">
+            <i data-lucide="globe-2" class="w-4 h-4 text-brand-goldRadiant"></i>
+            <span>Import & Export</span>
+          </a>
+          <a href="coal-trading.html" class="flex items-center gap-2 text-sm text-slate-300 hover:text-brand-goldLight">
+            <i data-lucide="flame" class="w-4 h-4 text-brand-goldRadiant"></i>
+            <span>Coal Trading</span>
+          </a>
+          <a href="shipping-logistics.html" class="flex items-center gap-2 text-sm text-slate-300 hover:text-brand-goldLight">
+            <i data-lucide="ship" class="w-4 h-4 text-brand-goldRadiant"></i>
+            <span>Shipping & Logistics</span>
+          </a>
+          <a href="furniture.html" class="flex items-center gap-2 text-sm text-slate-300 hover:text-brand-goldLight">
+            <i data-lucide="armchair" class="w-4 h-4 text-brand-goldRadiant"></i>
+            <span>Furniture Manufacturing</span>
+          </a>
+          <a href="azmora-estate.html" class="flex items-center gap-2 text-sm text-slate-300 hover:text-brand-goldLight">
+            <i data-lucide="building-2" class="w-4 h-4 text-brand-goldRadiant"></i>
+            <span>Azmora Estate</span>
+          </a>
+          <a href="azmora-healthcare.html" class="flex items-center gap-2 text-sm text-brand-goldRadiant font-semibold">
+            <i data-lucide="heart-pulse" class="w-4 h-4 text-brand-gold"></i>
+            <span>Azmora Healthcare</span>
+          </a>
+        </div>
+
+        <a href="../contact.html" class="block text-base font-medium text-slate-300 hover:text-white pt-2">Contact Us</a>
+      </div>
+    </div>
+
+    <div class="pt-8 border-t border-white/10 space-y-4">
+      <div class="text-xs text-slate-400">
+        <div class="font-medium text-white mb-1">Corporate HQ:</div>
+        <div>RJ Pavilion, Permude, Mangalore – 574509, Karnataka, India</div>
+      </div>
+      <a href="tel:+916366240126" class="flex items-center gap-2 text-xs text-brand-goldLight">
+        <i data-lucide="phone" class="w-3.5 h-3.5 text-brand-gold"></i>
+        <span>+91 6366240126</span>
+      </a>
+      <a href="../contact.html" class="btn-gold w-full text-center text-xs tracking-wider uppercase font-bold py-3 block">
+        Direct Trade Enquiry
+      </a>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="flex-grow">
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-36 pb-24 px-6 md:px-12 bg-brand-black overflow-hidden border-b border-white/5">
+      <div class="absolute inset-0 z-0">
+        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=2000&q=85" 
+             alt="Modern Healthcare Facility and Clinical Environment" 
+             class="hero-parallax w-full h-full object-cover object-center opacity-30 filter brightness-75 contrast-125">
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/75 to-transparent"></div>
+        <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+      </div>
+
+      <div class="relative z-10 max-w-5xl mx-auto text-center">
+        <div class="hero-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-brand-goldRadiant text-xs uppercase tracking-widest font-semibold mb-6">
+          <i data-lucide="heart-pulse" class="w-3.5 h-3.5"></i>
+          <span>Medical Sector Coordination</span>
+        </div>
+        <h1 class="hero-title text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6">
+          Azmora Healthcare <br>
+          <span class="text-gold-gradient font-serif-luxury font-normal">Compliant Medical Supply Chains</span>
+        </h1>
+        <p class="hero-subtitle text-slate-300 max-w-3xl mx-auto text-base sm:text-lg leading-relaxed">
+          Integrated into Azmora Group's multi-industry portfolio, Azmora Healthcare coordinates institutional healthcare supply chain logistics, medical infrastructure support, and industrial sourcing for clinical and health sector partners.
+        </p>
+        <div class="hero-actions mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="../contact.html" class="btn-gold text-xs tracking-wider uppercase font-bold py-3.5 px-8">
+            <span>Healthcare Procurement Inquiries</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </a>
+          <a href="#healthcare-pillars" class="btn-outline-gold text-xs tracking-wider uppercase font-semibold py-3.5 px-8">
+            <span>Explore Healthcare Vertical</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- HEALTHCARE OPERATIONAL PILLARS -->
+    <section id="healthcare-pillars" class="py-24 px-6 md:px-12 bg-brand-surface relative">
+      <div class="max-w-7xl mx-auto">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal-up">
+          <span class="badge-gold mb-3">Healthcare Infrastructure Focus</span>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mt-2">
+            Disciplined Healthcare <span class="text-gold-gradient">Supply Coordination</span>
+          </h2>
+          <p class="text-slate-400 mt-4 text-base">
+            Providing institutional clients with dependable procurement, temperature-controlled cargo handling, and regulatory documentation.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-stagger-group">
+          
+          <div class="reveal-stagger-item luxury-card p-8 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-goldRadiant mb-6">
+                <i data-lucide="stethoscope" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3">Medical Infrastructure Sourcing</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Facilitating procurement and logistics channels for certified clinical equipment, healthcare interior fittings, and hospital infrastructure components.
+              </p>
+            </div>
+            <ul class="mt-6 pt-6 border-t border-white/5 space-y-2 text-xs text-slate-300">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-gold"></i> Certified manufacturer networks</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-gold"></i> Compliance with healthcare standards</li>
+            </ul>
+          </div>
+
+          <div class="reveal-stagger-item luxury-card p-8 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-goldRadiant mb-6">
+                <i data-lucide="shield-plus" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3">Compliant Cold-Chain & Freight</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Interfacing with specialized logistics carriers capable of maintaining strict environmental controls, expedited customs, and sensitive handling.
+              </p>
+            </div>
+            <ul class="mt-6 pt-6 border-t border-white/5 space-y-2 text-xs text-slate-300">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-gold"></i> Controlled transit handling</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-gold"></i> Priority customs dispatch</li>
+            </ul>
+          </div>
+
+          <div class="reveal-stagger-item luxury-card p-8 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-goldRadiant mb-6">
+                <i data-lucide="clipboard-check" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3">Statutory Regulatory Alignment</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Ensuring all medical goods transit in full compliance with international health authority guidelines, statutory import licensing, and batch certifications.
+              </p>
+            </div>
+            <ul class="mt-6 pt-6 border-t border-white/5 space-y-2 text-xs text-slate-300">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-gold"></i> Verifiable documentation trail</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-gold"></i> Rigorous protocol adherence</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- HEALTHCARE ENVIRONMENT SHOWCASE -->
+    <section class="py-24 px-6 md:px-12 bg-brand-black border-y border-white/5">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        
+        <div class="reveal-up">
+          <span class="badge-gold mb-3">Institutional Precision</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-2">
+            Elevating Reliability in <br>
+            <span class="text-gold-gradient font-serif-luxury font-normal">Healthcare Sector Logistics</span>
+          </h2>
+          <p class="text-slate-300 mt-6 leading-relaxed">
+            Healthcare logistics require uncompromising discipline. Azmora Healthcare applies the group's global trade and logistics framework to ensure that medical equipment, clinical consumables, and facility infrastructure reach destinations on time and in perfect compliance.
+          </p>
+
+          <div class="mt-8 space-y-4">
+            <div class="flex items-start gap-3.5 p-4 rounded-xl bg-white/5 border border-white/5">
+              <div class="w-8 h-8 rounded-lg bg-brand-gold/10 text-brand-goldRadiant flex items-center justify-center flex-shrink-0">
+                <i data-lucide="check" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white">Vetted Sourcing Partners</h4>
+                <p class="text-xs text-slate-400 mt-0.5">Connecting institutional buyers with verified healthcare manufacturing hubs.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3.5 p-4 rounded-xl bg-white/5 border border-white/5">
+              <div class="w-8 h-8 rounded-lg bg-brand-gold/10 text-brand-goldRadiant flex items-center justify-center flex-shrink-0">
+                <i data-lucide="check" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white">Integrity of Chain of Custody</h4>
+                <p class="text-xs text-slate-400 mt-0.5">Continuous manifest verification from origin point to institutional handover.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-10">
+            <a href="../contact.html" class="btn-gold text-xs tracking-wider uppercase font-bold py-3.5 px-8">
+              Inquire with Healthcare Desk
+            </a>
+          </div>
+        </div>
+
+        <div class="relative reveal-up">
+          <div class="rounded-2xl overflow-hidden border border-brand-gold/30 shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=80" 
+                 alt="Clinical Medical Technology and Diagnostic Infrastructure" 
+                 class="w-full h-[440px] object-cover filter brightness-90">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-[#050608] border-t border-brand-gold/20 pt-16 pb-12 px-6 md:px-12 text-slate-400 text-sm">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+      
+      <div class="lg:col-span-2 space-y-4">
+        <div class="w-48">
+          <img src="../assets/logo.svg" alt="Azmora Group Logo" class="h-10 w-auto">
+        </div>
+        <p class="text-slate-400 text-sm leading-relaxed max-w-sm">
+          Azmora Group is a diversified multi-sector industrial solutions and global trade coordination enterprise. Delivering reliability across international trade, energy, logistics, and infrastructure.
+        </p>
+        <div class="pt-2 text-xs text-slate-400">
+          <span class="text-brand-gold font-semibold">Corporate Reg. Office:</span><br>
+          RJ Pavilion, 1st Floor, Permude, Mangalore – 574509, Karnataka, India
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4">Company</h4>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="../index.html" class="hover:text-brand-gold transition-colors">Home</a></li>
+          <li><a href="../about.html" class="hover:text-brand-gold transition-colors">About Us</a></li>
+          <li><a href="../contact.html" class="hover:text-brand-gold transition-colors">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4">Business Divisions</h4>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="import-export.html" class="hover:text-brand-gold transition-colors">Import & Export</a></li>
+          <li><a href="coal-trading.html" class="hover:text-brand-gold transition-colors">Coal Trading</a></li>
+          <li><a href="shipping-logistics.html" class="hover:text-brand-gold transition-colors">Shipping & Logistics</a></li>
+          <li><a href="furniture.html" class="hover:text-brand-gold transition-colors">Furniture & Joinery</a></li>
+          <li><a href="azmora-estate.html" class="hover:text-brand-gold transition-colors">Azmora Estate</a></li>
+          <li><a href="azmora-healthcare.html" class="text-brand-gold font-semibold">Azmora Healthcare</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4">Direct Contact</h4>
+        <ul class="space-y-3 text-sm">
+          <li class="flex items-start gap-2.5">
+            <i data-lucide="phone" class="w-4 h-4 text-brand-gold flex-shrink-0 mt-1"></i>
+            <a href="tel:+916366240126" class="hover:text-white transition-colors">+91 6366240126</a>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <i data-lucide="mail" class="w-4 h-4 text-brand-gold flex-shrink-0 mt-1"></i>
+            <a href="mailto:info@azmoragroup.com" class="hover:text-white transition-colors">info@azmoragroup.com</a>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <i data-lucide="globe" class="w-4 h-4 text-brand-gold flex-shrink-0 mt-1"></i>
+            <a href="https://www.azmoragroup.com/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">www.azmoragroup.com</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+      <div>
+        &copy; <span id="current-year">2026</span> AZMORA GROUP. All rights reserved.
+      </div>
+      <div class="flex items-center gap-6">
+        <span>Institutional Healthcare Logistics</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/animations.js"></script>
+</body>
+</html>
